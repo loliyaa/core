@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Heart } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { NAV_LINKS } from "@/data/content";
 import { scrollToId } from "@/lib/scroll";
@@ -19,6 +19,8 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const solid = scrolled || !isHome;
+
   const donate = () => {
     setOpen(false);
     if (isHome) {
@@ -35,23 +37,41 @@ export const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 bg-white transition-shadow duration-300 border-b border-zinc-200 ${
-        scrolled ? "shadow-sm" : ""
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        solid ? "bg-white border-b border-zinc-200 shadow-sm" : "bg-transparent"
       }`}
     >
-      <div className="max-w-[1400px] mx-auto px-5 md:px-10 h-24 flex items-center justify-between">
+      <div
+        className={`max-w-[1400px] mx-auto px-5 md:px-10 flex items-center justify-between transition-all duration-500 ${
+          solid ? "h-24" : "h-28"
+        }`}
+      >
         <Link
           to="/"
           data-testid="logo-home"
           onClick={() => setOpen(false)}
-          className="flex items-center group"
+          className="flex items-center gap-3 group"
           aria-label="Cris d'un Cœur — accueil"
         >
-          <img
-            src="/logo.webp"
-            alt="Cris d'un Cœur — La voix des sans voix"
-            className="h-16 md:h-[72px] w-auto transition-transform group-hover:scale-[1.03]"
-          />
+          {solid ? (
+            <img
+              src="/logo.webp"
+              alt="Cris d'un Cœur — La voix des sans voix"
+              className="h-16 md:h-[72px] w-auto transition-transform group-hover:scale-[1.03]"
+            />
+          ) : (
+            <>
+              <Heart className="h-9 w-9 fill-[#D62828] text-[#D62828] transition-transform group-hover:scale-110" />
+              <div className="leading-none">
+                <span className="font-heading font-extrabold text-xl md:text-2xl tracking-tight text-white block uppercase">
+                  Cris d&apos;un Cœur
+                </span>
+                <span className="font-body text-[10px] md:text-[11px] uppercase tracking-[0.22em] text-white/70">
+                  La voix des sans voix
+                </span>
+              </div>
+            </>
+          )}
         </Link>
 
         <nav className="hidden md:flex items-center gap-9">
@@ -60,7 +80,9 @@ export const Navbar = () => {
               key={l.to}
               to={l.to}
               data-testid={`nav-${l.to.replace("/", "")}`}
-              className="font-body text-sm font-medium relative group text-zinc-700 hover:text-zinc-900 transition-colors"
+              className={`font-body text-sm font-medium relative group transition-colors ${
+                solid ? "text-zinc-700 hover:text-zinc-900" : "text-white/90 hover:text-white"
+              }`}
             >
               {l.label}
               <span className="absolute -bottom-1 left-0 h-[2px] w-0 bg-[#D62828] transition-all duration-300 group-hover:w-full" />
@@ -78,7 +100,7 @@ export const Navbar = () => {
 
         <button
           data-testid="mobile-menu-toggle"
-          className="md:hidden text-zinc-900"
+          className={`md:hidden ${solid ? "text-zinc-900" : "text-white"}`}
           onClick={() => setOpen((v) => !v)}
           aria-label="Ouvrir le menu"
         >
