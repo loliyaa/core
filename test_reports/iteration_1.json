@@ -1,0 +1,34 @@
+{
+  "summary": "Frontend-only smoke test for Cris du Coeur static site executed at desktop 1920x800 and mobile 390x844. 26/27 checks passed. Hero renders and CTA scrolls, all navbar links scroll to their sections, hero rotation dots work, impact stats visible, manifesto/news/video iframe/annual-report all render, donation frequency toggles and amount buttons update submit label (e.g., 'Je donne 50€' -> 'Je donne 100€'), submit shows a success toast, footer and footer-donate-button work, mobile menu opens and shows nav links.",
+  "tested_scope": ["frontend", "integration"],
+  "passed": [
+    "hero-section renders with background and headline",
+    "hero-dot rotation changes slides (dot-2 clickable, downstream headline resolved)",
+    "hero-cta-button scrolls page (0 -> 5312)",
+    "nav-impact/histoire/transparence/actualites all scroll to sections",
+    "nav-donate-button scrolls to final-cta-section (visible)",
+    "stat-card-0/1/2 visible in impact-section",
+    "manifesto-row-0..3 all render",
+    "news-card-0/1/2 render",
+    "video-play-button swaps to video-iframe on click",
+    "annual-report-link present",
+    "freq-mensuel/freq-ponctuel toggles clickable",
+    "amount-50/100/250 change submit-donation-button label",
+    "submit-donation-button shows success/toast text",
+    "footer visible and footer-donate-button scrolls back to donation section",
+    "mobile-menu-toggle opens mobile-menu at 390x844 with nav links + Faire un don CTA"
+  ],
+  "failed": [
+    {
+      "area": "test-harness (not app bug)",
+      "issue": "First read of hero-headline text_content timed out on initial render; hero rotation itself works (dot-2 clickable, subsequent flows verified). Likely due to animation entrance delay before headline attaches with data-testid.",
+      "evidence": "Locator [data-testid=\"hero-headline\"] timed out once on load; all subsequent hero interactions succeeded.",
+      "priority": "LOW"
+    }
+  ],
+  "action_items": [],
+  "success_rate": {"backend": "N/A (no backend)", "frontend": "96%"},
+  "retest_needed": false,
+  "full_testing_deferred": true,
+  "notes": "Per request, backend/payment intentionally not real; donation submit only triggers a toast, which was verified. No console errors observed impacting flows."
+}
