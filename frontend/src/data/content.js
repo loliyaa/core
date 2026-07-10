@@ -90,6 +90,7 @@ export const VIDEO_POSTER =
 export const NAV_LINKS = [
   { label: "Causes", to: "/causes" },
   { label: "Événements", to: "/evenements" },
+  { label: "Blog", to: "/blog" },
   { label: "Boutique", to: "/boutique" },
   { label: "À propos", to: "/a-propos" },
   { label: "Contact", to: "/contact" },
@@ -197,4 +198,74 @@ export const VALUES = [
   { title: "Indépendance", text: "Aucune affiliation politique ou religieuse. Notre seule boussole : l'humain." },
   { title: "Redevabilité", text: "Comptes audités et publiés. Chaque don est tracé jusqu'au terrain." },
   { title: "Proximité", text: "Nos équipes vivent au cœur des communautés qu'elles accompagnent." },
+];
+
+export const BLOG_POSTS = [
+  {
+    id: 1,
+    featured: true,
+    image: HERO_SLIDES[2].image,
+    category: "Terrain",
+    date: "18 nov. 2025",
+    readTime: "6 min",
+    author: "Fatou Camara",
+    title: "Carnet de terrain : trois semaines au cœur du programme Eau au Mali",
+    excerpt:
+      "De village en village, notre responsable terrain raconte les visages, les obstacles et les victoires d'un projet qui transforme le quotidien de milliers de familles.",
+  },
+  {
+    id: 2,
+    image: NEWS[0].image,
+    category: "Éducation",
+    date: "09 nov. 2025",
+    readTime: "4 min",
+    author: "Thomas Rivière",
+    title: "Pourquoi scolariser une fille change tout un village",
+    excerpt:
+      "Éducation, santé, économie : les chiffres qui prouvent l'effet domino de l'éducation des filles.",
+  },
+  {
+    id: 3,
+    image: NEWS[1].image,
+    category: "Environnement",
+    date: "27 oct. 2025",
+    readTime: "5 min",
+    author: "Léa Marchand",
+    title: "Énergie solaire : comment un puits autonome libère du temps",
+    excerpt:
+      "Retour sur une innovation simple qui rend l'eau accessible sans dépendance au carburant.",
+  },
+  {
+    id: 4,
+    image: NEWS[2].image,
+    category: "Santé",
+    date: "12 oct. 2025",
+    readTime: "3 min",
+    author: "Marie Ndiaye",
+    title: "Santé maternelle : ce que change une sage-femme formée",
+    excerpt:
+      "Rencontre avec les femmes qui sécurisent chaque naissance dans les zones les plus isolées.",
+  },
+  {
+    id: 5,
+    image: HERO_SLIDES[0].image,
+    category: "Témoignage",
+    date: "01 oct. 2025",
+    readTime: "7 min",
+    author: "Rédaction",
+    title: "« J'ai grandi grâce à un parrain » : la lettre d'Amadou, 19 ans",
+    excerpt:
+      "Dix ans après son entrée dans le programme, un ancien bénéficiaire prend la plume.",
+  },
+  {
+    id: 6,
+    image: VIDEO_POSTER,
+    category: "Transparence",
+    date: "20 sept. 2025",
+    readTime: "5 min",
+    author: "Direction financière",
+    title: "Où va votre don ? On vous montre chaque euro",
+    excerpt:
+      "Décryptage complet de l'affectation de nos ressources, poste par poste.",
+  },
 ];
