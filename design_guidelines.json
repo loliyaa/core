@@ -1,0 +1,130 @@
+{
+  "theme": "light",
+  "project_type": "charity_ngo_landing_page",
+  "design_philosophy": "Awwwards-level, editorial, dignified, and emotionally resonant. Moving away from generic 'startup' templates to a trustworthy, magazine-like humanitarian layout. Focus on large typography, architectural grids, and highly legible financial transparency.",
+  "typography": {
+    "heading_font": "Cabinet Grotesk",
+    "body_font": "Satoshi",
+    "fallback_google_fonts": {
+      "heading": "Outfit",
+      "body": "Manrope"
+    },
+    "scale": {
+      "h1": "text-5xl md:text-7xl lg:text-[6rem] leading-[0.9] tracking-tighter",
+      "h2": "text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight",
+      "h3": "text-2xl md:text-3xl lg:text-4xl leading-snug",
+      "stats": "text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter",
+      "body": "text-base md:text-lg leading-relaxed",
+      "overline": "text-xs md:text-sm uppercase tracking-[0.2em] font-bold"
+    },
+    "instructions_to_main_agent": "Import Cabinet Grotesk and Satoshi via Fontshare API, or use Outfit/Manrope from Google Fonts. Do NOT use Inter or Space Grotesk. Headings must have tight letter-spacing. Use the 'overline' style for category labels."
+  },
+  "colors": {
+    "brand_accent": {
+      "hex": "#D62828",
+      "tailwind": "red-600",
+      "description": "A dignified, strong crimson/red. Not an 'error' red, but an 'urgent yet compassionate' tone."
+    },
+    "backgrounds": {
+      "primary": "#FDFDFD",
+      "secondary": "#F4F4F5",
+      "footer": "#18181B",
+      "hero_overlay": "bg-black/40"
+    },
+    "text": {
+      "primary": "#18181B",
+      "secondary": "#52525B",
+      "on_accent": "#FFFFFF",
+      "on_dark": "#FFFFFF"
+    },
+    "instructions_to_main_agent": "Ensure strict AA contrast ratio. Use the red accent sparingly for primary CTAs, active states, and big statistical numbers to draw the eye. Do not use red for large background areas unless it is the final CTA section."
+  },
+  "components_and_layouts": {
+    "hero_rotative": {
+      "structure": "Full-bleed `h-screen` viewport container. Background contains an `AnimatePresence` rotating between 3 images every 6-8 seconds.",
+      "content": "Masked line-by-line reveal for the H1 text (using Framer Motion). Each slide has its own specific H1 and CTA overlay. Slide 1 CTA: 'En savoir plus', Slide 2 CTA: 'Faire un don', Slide 3 CTA: 'Devenir partenaire'.",
+      "overlay": "Use a subtle linear gradient from black/60 at the bottom to transparent at the top to ensure white text readability."
+    },
+    "video_impact_story": {
+      "layout": "Asymmetric Bento-style section. Left side: Large video poster with a central 'Play' button (glassmorphic or solid white circle with red icon). Right side: A powerful blockquote/testimonial with the speaker's name and role."
+    },
+    "financial_transparency": {
+      "layout": "Grid-cols-1 md:grid-cols-3. Huge bold numbers (e.g., '89%', '1.5M', '45') in the brand red color, followed by short descriptive text.",
+      "cta": "Include an outlined button or text link with an arrow: 'Voir le rapport annuel'."
+    },
+    "manifesto_chapters": {
+      "layout": "Vertical list. Each row has a border-t border-zinc-200. On hover, the row background turns zinc-50 and a red arrow appears. Contains a large number ('01'), a bold title, and a short description."
+    },
+    "news_editorial_cards": {
+      "layout": "3-column CSS Grid (`grid-cols-1 md:grid-cols-3`). Cards are NOT floating boxes with shadows. They are flat 'editorial' blocks: Image on top (aspect-square or 4:5), tight spacing below with date, H3 title, and 'Lire la suite' link.",
+      "spacing": "gap-8 or gap-12."
+    },
+    "slow_marquee": {
+      "content": "Text string: 'CRIS DU COEUR — POUR UN MONDE PLUS JUSTE — URGENCE ET DÉVELOPPEMENT —'.",
+      "styling": "Massive text size (`text-7xl` or `text-8xl`), uppercase, font-black. Can use outline styling (`text-transparent stroke-black/10` style or just light gray text)."
+    },
+    "final_cta": {
+      "layout": "Massive padding (`py-32`). Red background. Centered text. Title: 'Votre don change des vies.' Button: White background, red text, large padding."
+    }
+  },
+  "motion": {
+    "scroll": "MUST implement `lenis` for smooth, momentum-based scrolling. This is critical for the premium editorial feel.",
+    "page_load": "Staggered fade-up and text mask reveals for the hero section.",
+    "on_scroll": "Use Framer Motion `whileInView` with `viewport={{ once: true, margin: '-100px' }}` for fading up sections.",
+    "micro_interactions": "Buttons should have a slight scale down on tap (`whileTap={{ scale: 0.98 }}`). Image hovers in the editorial cards should subtly scale the image within an `overflow-hidden` container."
+  },
+  "media": {
+    "hero_images": [
+      {
+        "url": "https://images.unsplash.com/photo-1693639257331-0bad8ac3913f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzR8MHwxfHNlYXJjaHwxfHxkaWduaWZpZWQlMjBhZnJpY2FuJTIwY2hpbGQlMjBwb3J0cmFpdCUyMHNtaWxlfGVufDB8fHx8MTc4MzY3MTQ1NXww&ixlib=rb-4.1.0&q=85",
+        "description": "Dignified smiling child portrait (Slide 1 - Hope/Future)"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1710093072228-8c3129f27357?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzR8MHwxfHNlYXJjaHwxfHxodW1hbml0YXJpYW4lMjBhaWQlMjB3b3JrZXIlMjBoZWxwaW5nJTIwY29tbXVuaXR5fGVufDB8fHx8MTc4MzY3MTQ1NXww&ixlib=rb-4.1.0&q=85",
+        "description": "Humanitarian aid distribution (Slide 2 - Field Action)"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1735792339621-2846f164b78f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2ODl8MHwxfHNlYXJjaHwzfHxhZnJpY2FuJTIwbW90aGVyJTIwYW5kJTIwY2hpbGQlMjBzbWlsaW5nJTIwZG9jdW1lbnRhcnl8ZW58MHx8fHwxNzgzNjcxNDY5fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Mother and child smiling (Slide 3 - Partnership/Care)"
+      }
+    ],
+    "video_poster": {
+      "url": "https://images.unsplash.com/photo-1542315099045-93937d70c67a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjh8MHwxfHNlYXJjaHwyfHxjb21tdW5pdHklMjBkZXZlbG9wbWVudCUyMHByb2plY3QlMjBob3BlfGVufDB8fHx8MTc4MzY3MTQ1NXww&ixlib=rb-4.1.0&q=85",
+      "description": "Community circle meeting (Used for the video testimonial block)"
+    },
+    "editorial_cards": [
+      {
+        "url": "https://images.unsplash.com/photo-1544476671-267ad5717d8e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzR8MHwxfHNlYXJjaHwzfHxkaWduaWZpZWQlMjBhZnJpY2FuJTIwY2hpbGQlMjBwb3J0cmFpdCUyMHNtaWxlfGVufDB8fHx8MTc4MzY3MTQ1NXww&ixlib=rb-4.1.0&q=85",
+        "description": "News 1: Education & Youth"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1758599668209-783bd3691ec8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzR8MHwxfHNlYXJjaHwyfHxodW1hbml0YXJpYW4lMjBhaWQlMjB3b3JrZXIlMjBoZWxwaW5nJTIwY29tbXVuaXR5fGVufDB8fHx8MTc4MzY3MTQ1NXww&ixlib=rb-4.1.0&q=85",
+        "description": "News 2: Environment & Volunteering"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1741940365437-e55b919a89d3?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2ODl8MHwxfHNlYXJjaHwyfHxhZnJpY2FuJTIwbW90aGVyJTIwYW5kJTIwY2hpbGQlMjBzbWlsaW5nJTIwZG9jdW1lbnRhcnl8ZW58MHx8fHwxNzgzNjcxNDY5fDA&ixlib=rb-4.1.0&q=85",
+        "description": "News 3: Maternal Health"
+      }
+    ]
+  },
+  "libraries_and_tools": [
+    "lucide-react (Icons)",
+    "framer-motion (Animations)",
+    "lenis (Smooth Scrolling)",
+    "react-fast-marquee (Marquee)"
+  ],
+  "accessibility": {
+    "contrast": "Red buttons must have white text. If red is too light, darken to red-700 for text.",
+    "aria_labels": "All visual-only donation buttons must have aria-labels.",
+    "testing": "All interactive elements MUST include `data-testid` attribute (e.g., `data-testid=\"hero-donate-button\"`)."
+  },
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Do NOT use default Inter font; import Cabinet Grotesk or use Outfit/Manrope.",
+    "Do NOT use standard Shadcn Cards with borders and shadows for the editorial news grid; use raw unstyled divs with flat imagery.",
+    "Ensure the hero images are clearly visible by managing the overlay opacity. Do NOT use a flat black/70 overlay, use black/30 to black/50 max.",
+    "Use generous spacing (p-12 to p-24) to create a premium, calm feel.",
+    "Don't add generic gradients. Stick to solid white/zinc-50 and the brand red for impact.",
+    "No generic centering of text unless it's the final CTA. Left-align text for editorial structure.",
+    "Create depth via clean typography scales, not box-shadows."
+  ]
+}
