@@ -8,7 +8,7 @@ export default function APropos() {
       <PageHero
         overline="À propos"
         title="Nous croyons en la force de chaque geste."
-        text="Depuis 2009, Cris du Cœur agit aux côtés des communautés les plus vulnérables, avec une exigence : la dignité avant tout."
+        text="Depuis 2009, Cris d'un Cœur agit aux côtés des communautés les plus vulnérables, avec une exigence : la dignité avant tout."
         image={TEAM[0].image}
       />
 

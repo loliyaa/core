@@ -20,11 +20,16 @@ export const Footer = () => {
       <div className="max-w-[1400px] mx-auto px-5 md:px-10">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-white/10">
           <div className="md:col-span-5">
-            <div className="flex items-center gap-2 mb-6">
-              <Heart className="h-6 w-6 fill-[#D62828] text-[#D62828]" />
-              <span className="font-heading font-extrabold text-xl tracking-tight">
-                Cris du Cœur
-              </span>
+            <div className="flex items-center gap-3 mb-6">
+              <Heart className="h-7 w-7 fill-[#D62828] text-[#D62828]" />
+              <div className="leading-none">
+                <span className="font-heading font-extrabold text-xl tracking-tight block">
+                  Cris d&apos;un Cœur
+                </span>
+                <span className="font-body text-[11px] uppercase tracking-[0.2em] text-white/50">
+                  La voix des sans voix
+                </span>
+              </div>
             </div>
             <p className="font-body text-white/60 text-base max-w-sm leading-relaxed">
               Une organisation humanitaire indépendante qui agit pour la dignité,
@@ -83,7 +88,7 @@ export const Footer = () => {
         </div>
 
         <div className="pt-8 flex flex-col md:flex-row justify-between gap-4 text-white/40 text-sm font-body">
-          <p>© 2025 Cris du Cœur. Association reconnue d&apos;utilité publique.</p>
+          <p>© 2025 Cris d&apos;un Cœur. Association reconnue d&apos;utilité publique.</p>
           <div className="flex gap-6">
             <a href="#hero" className="hover:text-white transition-colors">
               Mentions légales

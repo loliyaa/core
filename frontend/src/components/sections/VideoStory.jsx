@@ -40,7 +40,7 @@ export const VideoStory = () => {
                 data-testid="video-iframe"
                 className="absolute inset-0 h-full w-full"
                 src="https://www.youtube.com/embed/YQHsXMglC9A?autoplay=1"
-                title="Témoignage Cris du Cœur"
+                title="Témoignage Cris d'un Cœur"
                 allow="autoplay; encrypted-media"
                 allowFullScreen
               />

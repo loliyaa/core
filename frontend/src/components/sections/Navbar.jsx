@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Heart, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { NAV_LINKS } from "@/data/content";
 import { scrollToId } from "@/lib/scroll";
@@ -19,8 +19,6 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const solid = scrolled || !isHome;
-
   const donate = () => {
     setOpen(false);
     if (isHome) {
@@ -37,8 +35,8 @@ export const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-500 ${
-        solid ? "bg-white/90 backdrop-blur-md border-b border-zinc-200" : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 bg-white transition-shadow duration-300 border-b border-zinc-200 ${
+        scrolled ? "shadow-sm" : ""
       }`}
     >
       <div className="max-w-[1400px] mx-auto px-5 md:px-10 h-20 flex items-center justify-between">
@@ -46,16 +44,14 @@ export const Navbar = () => {
           to="/"
           data-testid="logo-home"
           onClick={() => setOpen(false)}
-          className="flex items-center gap-2 group"
+          className="flex items-center group"
+          aria-label="Cris d'un Cœur — accueil"
         >
-          <Heart className="h-6 w-6 fill-[#D62828] text-[#D62828] transition-transform group-hover:scale-110" />
-          <span
-            className={`font-heading font-extrabold text-lg tracking-tight ${
-              solid ? "text-zinc-900" : "text-white"
-            }`}
-          >
-            Cris du Cœur
-          </span>
+          <img
+            src="/logo.webp"
+            alt="Cris d'un Cœur — La voix des sans voix"
+            className="h-11 md:h-12 w-auto transition-transform group-hover:scale-[1.03]"
+          />
         </Link>
 
         <nav className="hidden md:flex items-center gap-9">
@@ -64,9 +60,7 @@ export const Navbar = () => {
               key={l.to}
               to={l.to}
               data-testid={`nav-${l.to.replace("/", "")}`}
-              className={`font-body text-sm font-medium relative group ${
-                solid ? "text-zinc-700" : "text-white/90"
-              }`}
+              className="font-body text-sm font-medium relative group text-zinc-700 hover:text-zinc-900 transition-colors"
             >
               {l.label}
               <span className="absolute -bottom-1 left-0 h-[2px] w-0 bg-[#D62828] transition-all duration-300 group-hover:w-full" />
@@ -84,7 +78,7 @@ export const Navbar = () => {
 
         <button
           data-testid="mobile-menu-toggle"
-          className={`md:hidden ${solid ? "text-zinc-900" : "text-white"}`}
+          className="md:hidden text-zinc-900"
           onClick={() => setOpen((v) => !v)}
           aria-label="Ouvrir le menu"
         >
