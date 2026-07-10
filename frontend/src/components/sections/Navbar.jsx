@@ -39,7 +39,7 @@ export const Navbar = () => {
         scrolled ? "shadow-sm" : ""
       }`}
     >
-      <div className="max-w-[1400px] mx-auto px-5 md:px-10 h-20 flex items-center justify-between">
+      <div className="max-w-[1400px] mx-auto px-5 md:px-10 h-24 flex items-center justify-between">
         <Link
           to="/"
           data-testid="logo-home"
@@ -50,7 +50,7 @@ export const Navbar = () => {
           <img
             src="/logo.webp"
             alt="Cris d'un Cœur — La voix des sans voix"
-            className="h-11 md:h-12 w-auto transition-transform group-hover:scale-[1.03]"
+            className="h-16 md:h-[72px] w-auto transition-transform group-hover:scale-[1.03]"
           />
         </Link>
 
