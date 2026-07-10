@@ -88,8 +88,113 @@ export const VIDEO_POSTER =
   "https://images.unsplash.com/photo-1542315099045-93937d70c67a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMjh8MHwxfHNlYXJjaHwyfHxjb21tdW5pdHklMjBkZXZlbG9wbWVudCUyMHByb2plY3QlMjBob3BlfGVufDB8fHx8MTc4MzY3MTQ1NXww&ixlib=rb-4.1.0&q=85";
 
 export const NAV_LINKS = [
-  { label: "Notre impact", target: "impact" },
-  { label: "Histoire", target: "histoire" },
-  { label: "Transparence", target: "transparence" },
-  { label: "Actualités", target: "actualites" },
+  { label: "Causes", to: "/causes" },
+  { label: "Événements", to: "/evenements" },
+  { label: "Boutique", to: "/boutique" },
+  { label: "À propos", to: "/a-propos" },
+  { label: "Contact", to: "/contact" },
+];
+
+export const CAUSES = [
+  {
+    slug: "eau",
+    image: HERO_SLIDES[1].image,
+    tag: "Eau & Assainissement",
+    title: "De l'eau potable pour chaque village",
+    text: "Forages solaires, réseaux communautaires et formation à l'entretien pour un accès durable.",
+    raised: 128000,
+    goal: 200000,
+  },
+  {
+    slug: "education",
+    image: NEWS[0].image,
+    tag: "Éducation",
+    title: "Une école ouverte à tous les enfants",
+    text: "Construction de classes, fournitures et bourses pour scolariser les enfants déscolarisés.",
+    raised: 84000,
+    goal: 150000,
+  },
+  {
+    slug: "sante",
+    image: NEWS[2].image,
+    tag: "Santé maternelle",
+    title: "Des naissances en toute sécurité",
+    text: "Cliniques mobiles, sages-femmes formées et suivi prénatal dans les zones isolées.",
+    raised: 176000,
+    goal: 220000,
+  },
+  {
+    slug: "urgence",
+    image: HERO_SLIDES[0].image,
+    tag: "Urgence",
+    title: "Réponse rapide aux crises",
+    text: "Kits de survie, abris et aide alimentaire déployés dans les 72 heures suivant une catastrophe.",
+    raised: 240000,
+    goal: 300000,
+  },
+];
+
+export const EVENTS = [
+  {
+    date: "2026-02-14",
+    day: "14",
+    month: "FÉV",
+    title: "Gala de solidarité — Paris",
+    location: "Pavillon Cambon, Paris 1er",
+    type: "Gala",
+    image: HERO_SLIDES[2].image,
+    text: "Une soirée caritative avec enchères, témoignages de terrain et dîner gastronomique.",
+  },
+  {
+    date: "2026-03-22",
+    day: "22",
+    month: "MAR",
+    title: "Course des Cœurs 10 km",
+    location: "Parc de la Tête d'Or, Lyon",
+    type: "Sport",
+    image: NEWS[1].image,
+    text: "Chaque dossard finance un mois d'eau potable pour une famille. Rejoignez les 2 000 coureurs.",
+  },
+  {
+    date: "2026-04-05",
+    day: "05",
+    month: "AVR",
+    title: "Atelier bénévoles & terrain",
+    location: "En ligne (visio)",
+    type: "Formation",
+    image: VIDEO_POSTER,
+    text: "Découvrez nos programmes et comment devenir bénévole actif au sein de nos équipes.",
+  },
+  {
+    date: "2026-05-18",
+    day: "18",
+    month: "MAI",
+    title: "Marché solidaire & artisanat",
+    location: "Place Bellecour, Lyon",
+    type: "Marché",
+    image: NEWS[0].image,
+    text: "Artisanat équitable des communautés partenaires. 100% des bénéfices reversés aux programmes.",
+  },
+];
+
+export const PRODUCTS = [
+  { id: 1, name: "Tote bag « Cri d'espoir »", price: 18, image: NEWS[0].image, category: "Accessoires" },
+  { id: 2, name: "T-shirt coton bio", price: 25, image: HERO_SLIDES[0].image, category: "Vêtements" },
+  { id: 3, name: "Bracelet solidaire", price: 12, image: NEWS[2].image, category: "Bijoux" },
+  { id: 4, name: "Carnet artisanal", price: 15, image: NEWS[1].image, category: "Papeterie" },
+  { id: 5, name: "Mug « Ensemble »", price: 16, image: VIDEO_POSTER, category: "Maison" },
+  { id: 6, name: "Écharpe tissée main", price: 34, image: HERO_SLIDES[2].image, category: "Accessoires" },
+];
+
+export const TEAM = [
+  { name: "Marie Ndiaye", role: "Directrice générale", image: HERO_SLIDES[2].image },
+  { name: "Thomas Rivière", role: "Directeur des programmes", image: HERO_SLIDES[1].image },
+  { name: "Fatou Camara", role: "Responsable terrain", image: NEWS[2].image },
+  { name: "Léa Marchand", role: "Responsable partenariats", image: NEWS[0].image },
+];
+
+export const VALUES = [
+  { title: "Indépendance", text: "Aucune affiliation politique ou religieuse. Notre seule boussole : l'humain." },
+  { title: "Redevabilité", text: "Comptes audités et publiés. Chaque don est tracé jusqu'au terrain." },
+  { title: "Proximité", text: "Nos équipes vivent au cœur des communautés qu'elles accompagnent." },
 ];

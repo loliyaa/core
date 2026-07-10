@@ -1,54 +1,29 @@
 import { useEffect } from "react";
-import Lenis from "lenis";
 import "@/App.css";
-import { Toaster } from "sonner";
-import { Navbar } from "@/components/sections/Navbar";
-import { Hero } from "@/components/sections/Hero";
-import { VideoStory } from "@/components/sections/VideoStory";
-import { Impact, Transparency } from "@/components/sections/Impact";
-import { Manifesto } from "@/components/sections/Manifesto";
-import { MarqueeBand } from "@/components/sections/MarqueeBand";
-import { NewsGrid } from "@/components/sections/NewsGrid";
-import { FinalCTA } from "@/components/sections/FinalCTA";
-import { Footer } from "@/components/sections/Footer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Layout } from "@/components/Layout";
+import Home from "@/pages/Home";
+import Causes from "@/pages/Causes";
+import Evenements from "@/pages/Evenements";
+import Boutique from "@/pages/Boutique";
+import APropos from "@/pages/APropos";
+import Contact from "@/pages/Contact";
 
 function App() {
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-    });
-    window.__lenis = lenis;
-    let raf;
-    const loop = (time) => {
-      lenis.raf(time);
-      raf = requestAnimationFrame(loop);
-    };
-    raf = requestAnimationFrame(loop);
-    return () => {
-      cancelAnimationFrame(raf);
-      lenis.destroy();
-      window.__lenis = null;
-    };
-  }, []);
-
+  useEffect(() => {}, []);
   return (
-    <div className="App font-body bg-[#FDFDFD]">
-      <Toaster position="top-center" richColors />
-      <Navbar />
-      <main>
-        <Hero />
-        <Impact />
-        <VideoStory />
-        <Transparency />
-        <Manifesto />
-        <MarqueeBand />
-        <NewsGrid />
-        <FinalCTA />
-      </main>
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/causes" element={<Causes />} />
+          <Route path="/evenements" element={<Evenements />} />
+          <Route path="/boutique" element={<Boutique />} />
+          <Route path="/a-propos" element={<APropos />} />
+          <Route path="/contact" element={<Contact />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

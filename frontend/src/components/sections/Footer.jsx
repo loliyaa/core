@@ -1,8 +1,20 @@
 import { Heart, Instagram, Facebook, Linkedin, Youtube } from "lucide-react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { NAV_LINKS } from "@/data/content";
 import { scrollToId } from "@/lib/scroll";
 
 export const Footer = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const donate = () => {
+    if (location.pathname === "/") {
+      scrollToId("don");
+    } else {
+      navigate("/");
+      setTimeout(() => scrollToId("don"), 500);
+    }
+  };
   return (
     <footer data-testid="footer" className="bg-[#18181B] text-white pt-20 pb-10">
       <div className="max-w-[1400px] mx-auto px-5 md:px-10">
@@ -39,13 +51,13 @@ export const Footer = () => {
             </p>
             <ul className="space-y-3">
               {NAV_LINKS.map((l) => (
-                <li key={l.target}>
-                  <button
-                    onClick={() => scrollToId(l.target)}
+                <li key={l.to}>
+                  <Link
+                    to={l.to}
                     className="font-body text-white/70 hover:text-white transition-colors"
                   >
                     {l.label}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -62,7 +74,7 @@ export const Footer = () => {
             </ul>
             <button
               data-testid="footer-donate-button"
-              onClick={() => scrollToId("don")}
+              onClick={donate}
               className="mt-6 bg-[#D62828] hover:bg-[#B31E1E] text-white font-bold px-6 py-3 rounded-full transition-colors"
             >
               Faire un don
