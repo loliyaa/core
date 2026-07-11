@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Heart, User } from "lucide-react";
+import { Menu, X, Heart, User, ShoppingBag } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { NAV_LINKS } from "@/data/content";
 import { scrollToId } from "@/lib/scroll";
 import { LanguageSwitcher } from "@/components/sections/LanguageSwitcher";
+import { useCart } from "@/context/CartContext";
 
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -12,6 +13,7 @@ export const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const isHome = location.pathname === "/";
+  const { count } = useCart();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -101,6 +103,21 @@ export const Navbar = () => {
           </Link>
           <span className={`h-4 w-px ${solid ? "bg-zinc-300" : "bg-white/30"}`} />
           <LanguageSwitcher solid={solid} />
+          <Link
+            to="/panier"
+            data-testid="nav-cart"
+            aria-label="Voir le panier"
+            className={`relative transition-colors ${
+              solid ? "text-zinc-900 hover:text-[#D62828]" : "text-white hover:text-white/80"
+            }`}
+          >
+            <ShoppingBag className="h-5 w-5" />
+            {count > 0 && (
+              <span className="absolute -top-2 -right-2 h-4 min-w-4 px-1 rounded-full bg-[#D62828] text-white text-[10px] font-bold flex items-center justify-center">
+                {count}
+              </span>
+            )}
+          </Link>
           <motion.button
             data-testid="nav-donate-button"
             whileTap={{ scale: 0.96 }}
@@ -154,6 +171,15 @@ export const Navbar = () => {
               <div className="pt-1">
                 <LanguageSwitcher full />
               </div>
+              <Link
+                to="/panier"
+                data-testid="mobile-nav-cart"
+                onClick={() => setOpen(false)}
+                className="flex items-center gap-2 text-left font-heading text-2xl font-bold text-zinc-900"
+              >
+                <ShoppingBag className="h-6 w-6" />
+                Panier{count > 0 ? ` (${count})` : ""}
+              </Link>
               <button
                 data-testid="mobile-donate-button"
                 onClick={donate}

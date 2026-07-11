@@ -1,17 +1,18 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { ShoppingBag, Plus } from "lucide-react";
+import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import { PageHero } from "@/components/sections/PageHero";
 import { PRODUCTS } from "@/data/content";
+import { useCart } from "@/context/CartContext";
 
 export default function Boutique() {
-  const [count, setCount] = useState(0);
+  const { addItem, count } = useCart();
 
-  const addToCart = (name) => {
-    setCount((c) => c + 1);
+  const add = (p) => {
+    addItem(p);
     toast.success("Ajouté au panier", {
-      description: `« ${name} » — 100% des bénéfices financent nos programmes. (Démonstration)`,
+      description: `« ${p.name} » — 100% des bénéfices financent nos programmes.`,
     });
   };
 
@@ -28,13 +29,14 @@ export default function Boutique() {
         <div className="max-w-[1400px] mx-auto px-5 md:px-10">
           <div className="flex items-center justify-between mb-12">
             <p className="font-body text-zinc-500">{PRODUCTS.length} produits</p>
-            <div
+            <Link
+              to="/panier"
               data-testid="cart-indicator"
-              className="flex items-center gap-2 font-bold text-zinc-900"
+              className="flex items-center gap-2 font-bold text-zinc-900 hover:text-[#D62828] transition-colors"
             >
               <ShoppingBag className="h-5 w-5" />
               Panier ({count})
-            </div>
+            </Link>
           </div>
 
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
@@ -56,7 +58,7 @@ export default function Boutique() {
                   />
                   <button
                     data-testid={`add-to-cart-${i}`}
-                    onClick={() => addToCart(p.name)}
+                    onClick={() => add(p)}
                     aria-label={`Ajouter ${p.name} au panier`}
                     className="absolute bottom-3 right-3 h-11 w-11 rounded-full bg-white text-zinc-900 flex items-center justify-center shadow-lg opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all hover:bg-[#D62828] hover:text-white"
                   >
