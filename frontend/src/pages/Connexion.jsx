@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Mail, Lock, User, Eye, EyeOff, Heart, ArrowRight, ShieldCheck } from "lucide-react";
 import { toast } from "sonner";
 import { HERO_SLIDES } from "@/data/content";
@@ -17,13 +17,15 @@ const GoogleIcon = (props) => (
 export default function Connexion() {
   const [tab, setTab] = useState("connexion");
   const [showPwd, setShowPwd] = useState(false);
+  const navigate = useNavigate();
 
   const submit = (e) => {
     e.preventDefault();
     toast.success(
       tab === "connexion" ? "Connexion réussie !" : "Compte créé avec succès !",
-      { description: "Ceci est une maquette — l'authentification sera gérée sur Joomla." }
+      { description: "Bienvenue dans votre espace membre (maquette)." }
     );
+    setTimeout(() => navigate("/espace-membre"), 600);
   };
 
   const inputWrap =

@@ -10,6 +10,7 @@ import Boutique from "@/pages/Boutique";
 import APropos from "@/pages/APropos";
 import Contact from "@/pages/Contact";
 import Connexion from "@/pages/Connexion";
+import EspaceMembre from "@/pages/EspaceMembre";
 
 function App() {
   useEffect(() => {}, []);
@@ -25,6 +26,7 @@ function App() {
           <Route path="/a-propos" element={<APropos />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/connexion" element={<Connexion />} />
+          <Route path="/espace-membre" element={<EspaceMembre />} />
         </Route>
       </Routes>
     </BrowserRouter>

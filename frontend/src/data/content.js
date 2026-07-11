@@ -269,3 +269,51 @@ export const BLOG_POSTS = [
       "Décryptage complet de l'affectation de nos ressources, poste par poste.",
   },
 ];
+
+
+export const MEMBER = {
+  name: "Camille Laurent",
+  firstName: "Camille",
+  email: "camille.laurent@email.com",
+  since: "2021",
+  initials: "CL",
+  totalGiven: 1240,
+};
+
+export const MEMBER_STATS = [
+  { label: "Total des dons", value: "1 240 €", sub: "depuis 2021" },
+  { label: "Don mensuel actif", value: "30 €", sub: "prochain le 05/01" },
+  { label: "Causes soutenues", value: "3", sub: "programmes en cours" },
+  { label: "Reçus fiscaux", value: "4", sub: "disponibles" },
+];
+
+export const SUBSCRIPTION = {
+  active: true,
+  amount: 30,
+  cause: "Eau & Assainissement",
+  since: "12/03/2023",
+  next: "05/01/2026",
+  method: "Visa •••• 4242",
+};
+
+export const DONATIONS = [
+  { date: "05/12/2025", cause: "Eau & Assainissement", amount: 30, type: "Mensuel", status: "Confirmé" },
+  { date: "05/11/2025", cause: "Eau & Assainissement", amount: 30, type: "Mensuel", status: "Confirmé" },
+  { date: "18/10/2025", cause: "Urgence", amount: 100, type: "Ponctuel", status: "Confirmé" },
+  { date: "05/10/2025", cause: "Eau & Assainissement", amount: 30, type: "Mensuel", status: "Confirmé" },
+  { date: "22/09/2025", cause: "Éducation", amount: 50, type: "Ponctuel", status: "Confirmé" },
+  { date: "05/09/2025", cause: "Eau & Assainissement", amount: 30, type: "Mensuel", status: "Confirmé" },
+];
+
+export const SUPPORTED_CAUSES = [
+  { title: "Eau & Assainissement", tag: "Parrainage actif", given: 810, image: HERO_SLIDES[1].image, progress: 64 },
+  { title: "Urgence", tag: "Don ponctuel", given: 100, image: HERO_SLIDES[0].image, progress: 80 },
+  { title: "Éducation", tag: "Don ponctuel", given: 50, image: NEWS[0].image, progress: 56 },
+];
+
+export const RECEIPTS = [
+  { year: "2025", amount: "320 €", issued: "En cours" },
+  { year: "2024", amount: "360 €", issued: "Disponible" },
+  { year: "2023", amount: "300 €", issued: "Disponible" },
+  { year: "2022", amount: "260 €", issued: "Disponible" },
+];
