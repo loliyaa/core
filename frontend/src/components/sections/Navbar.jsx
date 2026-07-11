@@ -4,6 +4,7 @@ import { Menu, X, Heart, User } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { NAV_LINKS } from "@/data/content";
 import { scrollToId } from "@/lib/scroll";
+import { LanguageSwitcher } from "@/components/sections/LanguageSwitcher";
 
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -98,6 +99,8 @@ export const Navbar = () => {
             <User className="h-4 w-4" />
             Connexion
           </Link>
+          <span className={`h-4 w-px ${solid ? "bg-zinc-300" : "bg-white/30"}`} />
+          <LanguageSwitcher solid={solid} />
           <motion.button
             data-testid="nav-donate-button"
             whileTap={{ scale: 0.96 }}
@@ -148,6 +151,9 @@ export const Navbar = () => {
                 <User className="h-6 w-6" />
                 Connexion
               </Link>
+              <div className="pt-1">
+                <LanguageSwitcher full />
+              </div>
               <button
                 data-testid="mobile-donate-button"
                 onClick={donate}
