@@ -9,6 +9,7 @@ import Blog from "@/pages/Blog";
 import Boutique from "@/pages/Boutique";
 import APropos from "@/pages/APropos";
 import Contact from "@/pages/Contact";
+import Connexion from "@/pages/Connexion";
 
 function App() {
   useEffect(() => {}, []);
@@ -23,6 +24,7 @@ function App() {
           <Route path="/boutique" element={<Boutique />} />
           <Route path="/a-propos" element={<APropos />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/connexion" element={<Connexion />} />
         </Route>
       </Routes>
     </BrowserRouter>

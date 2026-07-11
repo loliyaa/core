@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Heart } from "lucide-react";
+import { Menu, X, Heart, User } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { NAV_LINKS } from "@/data/content";
 import { scrollToId } from "@/lib/scroll";
@@ -74,7 +74,7 @@ export const Navbar = () => {
           )}
         </Link>
 
-        <nav className="hidden md:flex items-center gap-9">
+        <nav className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((l) => (
             <Link
               key={l.to}
@@ -88,6 +88,16 @@ export const Navbar = () => {
               <span className="absolute -bottom-1 left-0 h-[2px] w-0 bg-[#D62828] transition-all duration-300 group-hover:w-full" />
             </Link>
           ))}
+          <Link
+            to="/connexion"
+            data-testid="nav-login"
+            className={`flex items-center gap-1.5 font-body text-sm font-semibold transition-colors ${
+              solid ? "text-zinc-900 hover:text-[#D62828]" : "text-white hover:text-white/80"
+            }`}
+          >
+            <User className="h-4 w-4" />
+            Connexion
+          </Link>
           <motion.button
             data-testid="nav-donate-button"
             whileTap={{ scale: 0.96 }}
@@ -129,6 +139,15 @@ export const Navbar = () => {
                   {l.label}
                 </Link>
               ))}
+              <Link
+                to="/connexion"
+                data-testid="mobile-nav-login"
+                onClick={() => setOpen(false)}
+                className="flex items-center gap-2 text-left font-heading text-2xl font-bold text-zinc-900"
+              >
+                <User className="h-6 w-6" />
+                Connexion
+              </Link>
               <button
                 data-testid="mobile-donate-button"
                 onClick={donate}
