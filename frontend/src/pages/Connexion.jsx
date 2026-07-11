@@ -74,18 +74,8 @@ export default function Connexion() {
       </div>
 
       {/* Right — form */}
-      <div className="relative flex items-center justify-center px-5 sm:px-8 py-28 lg:py-16 overflow-hidden bg-[#FDFDFD]">
-        <img
-          src={HERO_SLIDES[0].image}
-          alt=""
-          className="absolute inset-0 h-full w-full object-cover"
-        />
-        <div className="absolute inset-0 bg-[#FDFDFD]/92 backdrop-blur-md" />
-        <div
-          aria-hidden
-          className="absolute -top-24 -right-24 h-80 w-80 rounded-full bg-[#D62828]/10 blur-3xl"
-        />
-        <div className="relative w-full max-w-md lg:bg-white lg:rounded-3xl lg:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.15)] lg:border lg:border-zinc-100 lg:p-9">
+      <div className="flex items-center justify-center px-5 sm:px-8 py-28 lg:py-16 bg-[#FDFDFD]">
+        <div className="w-full max-w-md">
           <div className="lg:hidden flex items-center gap-2 mb-8">
             <Heart className="h-7 w-7 fill-[#D62828] text-[#D62828]" />
             <span className="font-heading font-extrabold text-lg uppercase tracking-tight text-zinc-900">
