@@ -6,6 +6,7 @@ import Home from "@/pages/Home";
 import Causes from "@/pages/Causes";
 import Evenements from "@/pages/Evenements";
 import Blog from "@/pages/Blog";
+import ArticleBlog from "@/pages/ArticleBlog";
 import Boutique from "@/pages/Boutique";
 import Panier from "@/pages/Panier";
 import APropos from "@/pages/APropos";
@@ -23,6 +24,7 @@ function App() {
             <Route path="/causes" element={<Causes />} />
             <Route path="/evenements" element={<Evenements />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:id" element={<ArticleBlog />} />
             <Route path="/boutique" element={<Boutique />} />
             <Route path="/panier" element={<Panier />} />
             <Route path="/a-propos" element={<APropos />} />

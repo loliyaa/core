@@ -1,18 +1,15 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Clock } from "lucide-react";
-import { toast } from "sonner";
+import { useNavigate } from "react-router-dom";
 import { PageHero } from "@/components/sections/PageHero";
 import { BLOG_POSTS } from "@/data/content";
 
 export default function Blog() {
   const featured = BLOG_POSTS.find((p) => p.featured) || BLOG_POSTS[0];
   const rest = BLOG_POSTS.filter((p) => p.id !== featured.id);
+  const navigate = useNavigate();
 
-  const read = (title) => {
-    toast("Article en démonstration", {
-      description: `« ${title} » — le contenu complet sera bientôt disponible.`,
-    });
-  };
+  const read = (id) => navigate(`/blog/${id}`);
 
   return (
     <div data-testid="blog-page">
@@ -32,7 +29,7 @@ export default function Blog() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            onClick={() => read(featured.title)}
+            onClick={() => read(featured.id)}
             className="group grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center cursor-pointer mb-24"
           >
             <div className="relative overflow-hidden rounded-2xl aspect-[4/3]">
@@ -82,7 +79,7 @@ export default function Blog() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-60px" }}
                 transition={{ duration: 0.6, delay: (i % 3) * 0.1 }}
-                onClick={() => read(p.title)}
+                onClick={() => read(p.id)}
                 className="group cursor-pointer"
               >
                 <div className="relative overflow-hidden rounded-xl aspect-[4/3] mb-5">
